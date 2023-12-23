@@ -1,5 +1,5 @@
 module project {
-	source = "../"
+	source = "../../"
 	
 	name = "GitLab Project"
 	path = "gitlab-project"
