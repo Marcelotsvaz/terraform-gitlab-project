@@ -10,6 +10,8 @@ resource gitlab_project main {
 	
 	topics = var.topics
 	description = var.description
+	avatar = var.avatar
+	avatar_hash = try( filesha256( var.avatar ), null )
 	visibility_level = var.visibility_level
 	
 	# Features

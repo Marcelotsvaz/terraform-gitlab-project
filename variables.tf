@@ -30,6 +30,11 @@ variable description {
 	default = ""
 }
 
+variable avatar {
+	type = string
+	default = null
+}
+
 variable visibility_level {
 	type = string
 	default = "public"
