@@ -18,10 +18,6 @@ variable namespace {
 
 
 # 
-# Settings
-#-------------------------------------------------------------------------------
-
-# 
 # General
 #-----------------------------------------------------------
 variable topics {
@@ -47,8 +43,8 @@ variable features {
 		merge_requests_access_level = optional( string, "enabled" )
 		forking_access_level = optional( string, "enabled" )
 		lfs_enabled = optional( bool, true )
-		
 		builds_access_level = optional( string, "disabled" )
+		
 		container_registry_access_level = optional( string, "disabled" )
 		analytics_access_level = optional( string, "enabled" )	# Enabled.
 		security_and_compliance_access_level = optional( string, "disabled" )
@@ -69,10 +65,13 @@ variable features {
 	default = {}
 }
 
+
 # 
 # CI/CD
 #-----------------------------------------------------------
-variable shared_runners_enabled {
-	type = string
-	default = false
+variable cicd {
+	type = object( {
+		shared_runners_enabled = optional( bool, false )
+	} )
+	default = {}
 }

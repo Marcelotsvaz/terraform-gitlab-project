@@ -12,12 +12,15 @@ resource gitlab_project main {
 	description = var.description
 	visibility_level = var.visibility_level
 	
+	# Features
 	issues_enabled = var.features.issues_enabled
+	
 	repository_access_level = var.features.repository_access_level
 	merge_requests_access_level = var.features.merge_requests_access_level
 	forking_access_level = var.features.forking_access_level
 	lfs_enabled = var.features.lfs_enabled
 	builds_access_level = var.features.builds_access_level
+	
 	container_registry_access_level = var.features.container_registry_access_level
 	analytics_access_level = var.features.analytics_access_level
 	security_and_compliance_access_level = var.features.security_and_compliance_access_level
@@ -32,7 +35,11 @@ resource gitlab_project main {
 	feature_flags_access_level = var.features.feature_flags_access_level
 	infrastructure_access_level = var.features.infrastructure_access_level
 	releases_access_level = var.features.releases_access_level
+	
 	# service_desk_enabled = var.features.service_desk_enabled
+	
+	# CI/CD
+	shared_runners_enabled = var.cicd.shared_runners_enabled
 }
 
 
