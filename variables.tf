@@ -80,3 +80,16 @@ variable cicd {
 	} )
 	default = {}
 }
+
+
+# 
+# GitHub
+#-----------------------------------------------------------
+variable github_mirror {
+	type = object( {
+		name = string
+		homepage_url = optional( string, null )
+		is_template = optional( bool, false )
+	} )
+	default = null
+}
