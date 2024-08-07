@@ -5,7 +5,7 @@ resource github_repository main {
 	is_template = var.github_mirror.is_template
 	description = var.description
 	homepage_url = var.github_mirror.homepage_url
-	topics = var.topics
+	topics = [ for topic in var.topics: lower( topic ) ]
 	
 	has_issues = true
 	has_projects = false
