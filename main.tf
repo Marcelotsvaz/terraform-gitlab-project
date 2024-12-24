@@ -29,8 +29,8 @@ resource gitlab_project main {
 	wiki_access_level = var.features.wiki_access_level
 	snippets_access_level = var.features.snippets_access_level
 	packages_enabled = var.features.packages_enabled
-	# model_experiments_access_level = var.features.model_experiments_access_level
-	# model_registry_access_level = var.features.model_registry_access_level
+	model_experiments_access_level = var.features.model_experiments_access_level
+	model_registry_access_level = var.features.model_registry_access_level
 	pages_access_level = var.features.pages_access_level
 	monitor_access_level = var.features.monitor_access_level
 	environments_access_level = var.features.environments_access_level
