@@ -25,6 +25,24 @@ resource gitlab_project_mirror main {
 	count = var.github_mirror != null ? 1 : 0
 	
 	project = gitlab_project.main.id
-	# TODO: Fix this.
-	url = replace( github_repository.main[0].http_clone_url, "/\\/\\//", "//git:password@" )
+	url = replace( github_repository.main[0].ssh_clone_url, "/^(.+):(.+)$/", "ssh://$1/$2" )
+	auth_method = "ssh_public_key"
+}
+
+
+data gitlab_project_mirror_public_key main {
+	count = var.github_mirror != null ? 1 : 0
+	
+	project_id = gitlab_project.main.id
+	mirror_id = gitlab_project_mirror.main[0].mirror_id
+}
+
+
+resource github_repository_deploy_key main {
+	count = var.github_mirror != null ? 1 : 0
+	
+	repository = github_repository.main[0].name
+	title = "GitLab Mirror SSH Key"
+	key = data.gitlab_project_mirror_public_key.main[0].public_key
+	read_only = false
 }
